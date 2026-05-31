@@ -47,8 +47,8 @@
   --col-ice:    #93d4ff; --col-ice-bg:    rgba(147,212,255,0.13); --col-ice-border:    rgba(147,212,255,0.4);
   --col-fire:   #ffb3c1; --col-fire-bg:   rgba(255,179,193,0.13); --col-fire-border:   rgba(255,179,193,0.4);
   --col-energy: #ff9999; --col-energy-bg: rgba(255,153,153,0.13); --col-energy-border: rgba(255,153,153,0.4);
-  --col-gravity:#ffcf91; --col-gravity-bg:rgba(255,207,145,0.13); --col-gravity-border:rgba(255,207,145,0.4);
-  --col-wave:   #e8c84a; --col-wave-bg:   rgba(232,200,74,0.13);   --col-wave-border:   rgba(232,200,74,0.4);
+  --col-gravity:#f29b52; --col-gravity-bg:rgba(255,207,145,0.13); --col-gravity-border:rgba(255,207,145,0.4);
+  --col-wave:   #ffe07a; --col-wave-bg:   rgba(232,200,74,0.13);   --col-wave-border:   rgba(232,200,74,0.4);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -727,15 +727,15 @@ header {
    <div class="site-sub">戀與深空戰鬥討論群</div>
   <div class="site-title" style="margin-top: 0.8rem;">⚔️ 面板資料庫 ⚔️</div>
   <div class="site-sub" style="margin-top: 0.8rem;">
-    本站定期收錄「<a href="https://www.facebook.com/share/g/18qcHFWDrj/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">戀與深空戰鬥討論群_臉書面板分享專區</a>」之定向軌道及開放穩定軌道資料
+    本站收錄「<a href="https://www.facebook.com/share/g/18qcHFWDrj/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">戀與深空戰鬥討論群_臉書面板分享專區</a>」的通關資料
   </div>
-  <div class="site-sub" style="margin-top: 0.3rem;"> 歡迎獵人在此查詢面板或分享通關資料至上方專區
+  <div class="site-sub" style="margin-top: 0.3rem;"> 歡迎獵人在此查詢通關資料或至上方專區進行分享
     </div>
 </header>
 
 <!-- Tab navigation -->
 <div class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('panel', this)">定向／開放軌道</button>
+  <button class="tab-btn active" onclick="switchTab('panel', this)">軌道</button>
   <button class="tab-btn" onclick="switchTab('endless', this)">無盡挑戰</button>
 </div>
 
@@ -750,8 +750,8 @@ header {
      <div class="filter-group orbit-group">
         <label>軌道類型</label>
         <div class="orbit-chips" id="orbitChips">
-          <button class="chip" data-orbit="開放" onclick="selectOrbit(this)">開放－穩定</button>
-          <button class="chip" data-orbit="波動" onclick="selectOrbit(this)">開放－波動</button>
+          <button class="chip" data-orbit="開放" onclick="selectOrbit(this)">開放穩定</button>
+          <button class="chip" data-orbit="波動" onclick="selectOrbit(this)">開放波動</button>
           <button class="chip" data-orbit="光"   onclick="selectOrbit(this)">光</button>
           <button class="chip" data-orbit="冰"   onclick="selectOrbit(this)">冰</button>
           <button class="chip" data-orbit="火"   onclick="selectOrbit(this)">火</button>
@@ -852,7 +852,7 @@ header {
 
 // Parse data
 const LIMITS = { 光:210, 冰:210, 火:210, 能量:180, 引力:180, 開放:300, 波動:60 };
-const ORBIT_LABEL = { 開放:'開放－穩定', 波動:'開放－波動', 光:'光', 冰:'冰', 火:'火', 能量:'能量', 引力:'引力' };
+const ORBIT_LABEL = { 開放:'開放穩定', 波動:'開放波動', 光:'光', 冰:'冰', 火:'火', 能量:'能量', 引力:'引力' };
 
 let DATA = [];
 let ENDLESS_DATA = [];
@@ -1127,9 +1127,9 @@ function fmtScore(s) {
 function renderEndless() {
   const grid = document.getElementById('endlessGrid');
   const info = document.getElementById('endlessInfo');
-  info.innerHTML = `共找到 <span>${ENDLESS_DATA.length}</span> 筆無盡挑戰紀錄`;
+  info.innerHTML = `共找到 <span>${ENDLESS_DATA.length}</span> 筆結果`;
   if (ENDLESS_DATA.length === 0) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem;margin-bottom:0.5rem;opacity:0.3">✦</div><p>找不到符合條件的紀錄</p></div>`;
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem;margin-bottom:0.5rem;opacity:0.3">😣</div><p>找不到符合條件的結果 期待您成為第一位分享者✨</p></div>`;
     return;
   }
   grid.innerHTML = ENDLESS_DATA.map((d, i) => `
